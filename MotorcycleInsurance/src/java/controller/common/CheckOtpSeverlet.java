@@ -4,7 +4,7 @@
  */
 package controller.common;
 
-import dao.DBContext;
+import dal.DBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -63,7 +63,7 @@ public class CheckOtpSeverlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("common/checkmail.jsp").forward(request, response);
+        request.getRequestDispatcher("checkmail.jsp").forward(request, response);
     }
 
     /**

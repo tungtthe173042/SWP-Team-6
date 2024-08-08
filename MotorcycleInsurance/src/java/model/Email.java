@@ -5,7 +5,6 @@
 package model;
 
 import java.util.Date;
-import java.util.Iterator;
 import java.util.Properties;
 
 import jakarta.mail.Authenticator;
@@ -15,8 +14,6 @@ import jakarta.mail.Session;
 import jakarta.mail.Transport;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
-import jakarta.activation.DataHandler;
-import jakarta.activation.DataSource;
 import jakarta.mail.internet.MimeUtility;
 
 public class Email {

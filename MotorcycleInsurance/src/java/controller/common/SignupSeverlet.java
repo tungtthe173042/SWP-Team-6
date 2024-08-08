@@ -4,7 +4,7 @@
  */
 package controller.common;
 
-import dao.DBContext;
+import dal.DBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -67,7 +67,7 @@ public class SignupSeverlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("common/signup.jsp");
+        response.sendRedirect("signup.jsp");
     }
 
     /**
@@ -98,16 +98,16 @@ public class SignupSeverlet extends HttpServlet {
             request.setAttribute("email", email);
             request.setAttribute("fname", fname);
             request.setAttribute("address", add);
-            request.getRequestDispatcher("commom/signup.jsp").forward(request, response);
+            request.getRequestDispatcher("signup.jsp").forward(request, response);
         }
         try {
             if (db.findUser(user) == 0) {
                 request.setAttribute("f", "Account already exists");
-                request.getRequestDispatcher("commom/signup.jsp").forward(request, response);
+                request.getRequestDispatcher("signup.jsp").forward(request, response);
             }
             if (db.findEmail(email) == 0) {
                 request.setAttribute("f", "Gmail already exists");
-                request.getRequestDispatcher("commom/signup.jsp").forward(request, response);
+                request.getRequestDispatcher("signup.jsp").forward(request, response);
             }
         } catch (SQLException ex) {
             Logger.getLogger(SignupSeverlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -132,7 +132,7 @@ public class SignupSeverlet extends HttpServlet {
             request.setAttribute("email", email);
             request.setAttribute("fname", fname);
             request.setAttribute("address", add);
-            request.getRequestDispatcher("/commom/signup.jsp").forward(request, response);
+            request.getRequestDispatcher("signup.jsp").forward(request, response);
         }
     }
 
