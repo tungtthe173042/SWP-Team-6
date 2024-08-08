@@ -28,8 +28,8 @@ public class DBContext {
             Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-}
-/**
+
+
     public User getUserById(int idAcc) {
         String sql = "SELECT * FROM [dbo].[Users]"
                 + "      WHERE user_id = ?";
@@ -152,7 +152,7 @@ public class DBContext {
 
         }
     }
-    
+    /**
     public List<Feedback> getFeedbackByPid(int pid) {
         List<Feedback> list = new ArrayList<>();
         String sql = """
@@ -220,5 +220,6 @@ public class DBContext {
             System.out.println(feedback.getF_des());
         }
     }
+    * */
 }
-* */
+

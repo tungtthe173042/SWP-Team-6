@@ -119,7 +119,7 @@
                                                     form.submit();
                                                 }
                                             });
-                                        };
+                                        }
         </script>
 
     </body>

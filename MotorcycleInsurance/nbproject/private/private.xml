@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/web/WEB-INF/web.xml</file>
+            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/web/META-INF/context.xml</file>
+            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/src/java/model/User.java</file>
+            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/src/java/model/Email.java</file>
+            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/src/java/model/Compesation.java</file>
+            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/web/common/forget-password.jsp</file>
+            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/src/java/controller/FogotpassController.java</file>
+            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/web/admin/UpdateAccount.jsp</file>
+            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/web/common/changepass.jsp</file>
+            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/web/staff/manageinsurange/add.jsp</file>
+            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/web/staff/managecontract/resolveaccident.jsp</file>
+            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/web/common/home.jsp</file>
+            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/web/staff/manageinsurange/list.jsp</file>
+            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/src/java/dao/DBContext.java</file>
+            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/src/java/model/Accident.java</file>
+            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/src/java/dao/DBLoginContext.java</file>
+            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/web/admin/ListAccount.jsp</file>
+            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/src/java/model/Generate.java</file>
+            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/src/java/model/CustomerInsurrance.java</file>
+        </group>
+    </open-files>
+</project-private>

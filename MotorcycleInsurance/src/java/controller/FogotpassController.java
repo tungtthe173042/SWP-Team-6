@@ -60,7 +60,7 @@ public class FogotpassController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("Forget-password.jsp").forward(request, response);
+        request.getRequestDispatcher("forget-password.jsp").forward(request, response);
     }
 
     /**
@@ -96,7 +96,7 @@ public class FogotpassController extends HttpServlet {
         } else {
             request.setAttribute("error", "Your account  is not exist in system");
         }
-        request.getRequestDispatcher("Forget-password.jsp").forward(request, response);
+        request.getRequestDispatcher("forget-password.jsp").forward(request, response);
     }
 
     /**
