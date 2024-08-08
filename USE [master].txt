@@ -1,0 +1,237 @@
+USE [master]
+GO
+/****** Object:  Database [Insurance]    Script Date: 8/8/2024 9:02:31 AM ******/
+CREATE DATABASE [Insurance]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'Insurance', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.SQLSERVER\MSSQL\DATA\Insurance.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'Insurance_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.SQLSERVER\MSSQL\DATA\Insurance_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT, LEDGER = OFF
+GO
+ALTER DATABASE [Insurance] SET COMPATIBILITY_LEVEL = 160
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [Insurance].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [Insurance] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [Insurance] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [Insurance] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [Insurance] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [Insurance] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [Insurance] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [Insurance] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [Insurance] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [Insurance] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [Insurance] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [Insurance] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [Insurance] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [Insurance] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [Insurance] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [Insurance] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [Insurance] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [Insurance] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [Insurance] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [Insurance] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [Insurance] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [Insurance] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [Insurance] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [Insurance] SET RECOVERY FULL 
+GO
+ALTER DATABASE [Insurance] SET  MULTI_USER 
+GO
+ALTER DATABASE [Insurance] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [Insurance] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [Insurance] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [Insurance] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [Insurance] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [Insurance] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'Insurance', N'ON'
+GO
+ALTER DATABASE [Insurance] SET QUERY_STORE = ON
+GO
+ALTER DATABASE [Insurance] SET QUERY_STORE (OPERATION_MODE = READ_WRITE, CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 30), DATA_FLUSH_INTERVAL_SECONDS = 900, INTERVAL_LENGTH_MINUTES = 60, MAX_STORAGE_SIZE_MB = 1000, QUERY_CAPTURE_MODE = AUTO, SIZE_BASED_CLEANUP_MODE = AUTO, MAX_PLANS_PER_QUERY = 200, WAIT_STATS_CAPTURE_MODE = ON)
+GO
+USE [Insurance]
+GO
+/****** Object:  Table [dbo].[Accident]    Script Date: 8/8/2024 9:02:32 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Accident](
+	[AccidentID] [int] IDENTITY(1,1) NOT NULL,
+	[Image] [nvarchar](max) NULL,
+	[AccidentDescription] [nvarchar](max) NULL,
+	[AccidentDate] [datetime] NULL,
+	[AccidentName] [datetime] NULL,
+	[CIsuranceID] [int] NULL,
+ CONSTRAINT [PK_Accident] PRIMARY KEY CLUSTERED 
+(
+	[AccidentID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Compensation]    Script Date: 8/8/2024 9:02:32 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Compensation](
+	[CompensationID] [int] IDENTITY(1,1) NOT NULL,
+	[CIsuranceID] [int] NULL,
+	[CIStatus] [int] NULL,
+	[Description] [nvarchar](max) NULL,
+	[Status] [int] NULL,
+ CONSTRAINT [PK_Compensation] PRIMARY KEY CLUSTERED 
+(
+	[CompensationID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CustomerInsurance]    Script Date: 8/8/2024 9:02:32 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CustomerInsurance](
+	[CIsuranceID] [int] IDENTITY(1,1) NOT NULL,
+	[UserID] [int] NULL,
+	[InsuranceName] [nvarchar](max) NULL,
+	[StartDate] [datetime] NULL,
+	[EndDate] [datetime] NULL,
+	[OwnerName] [nvarchar](max) NULL,
+	[LicensePlates] [nvarchar](max) NULL,
+	[EngineNumber] [nvarchar](max) NULL,
+	[ChassisNumber] [nvarchar](max) NULL,
+ CONSTRAINT [PK_CustomerInsurance] PRIMARY KEY CLUSTERED 
+(
+	[CIsuranceID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Insurance]    Script Date: 8/8/2024 9:02:32 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Insurance](
+	[InsuranceID] [int] IDENTITY(1,1) NOT NULL,
+	[InsuranceName] [nvarchar](max) NULL,
+	[InsuranceDescreption] [nvarchar](max) NULL,
+	[InsurancePrice] [int] NULL,
+	[Status] [int] NULL,
+ CONSTRAINT [PK_Insurance] PRIMARY KEY CLUSTERED 
+(
+	[InsuranceID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Payment]    Script Date: 8/8/2024 9:02:32 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Payment](
+	[PaymentID] [int] IDENTITY(1,1) NOT NULL,
+	[UserID] [int] NULL,
+	[TotalPrice] [int] NULL,
+	[PaymentDate] [datetime] NULL,
+	[InsuranName] [nvarchar](max) NULL,
+ CONSTRAINT [PK_Payment] PRIMARY KEY CLUSTERED 
+(
+	[PaymentID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Users]    Script Date: 8/8/2024 9:02:32 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Users](
+	[user_id] [int] NULL,
+	[username] [nvarchar](max) NULL,
+	[password] [nvarchar](max) NULL,
+	[full_name] [nvarchar](max) NULL,
+	[phone_number] [nvarchar](max) NULL,
+	[address] [nvarchar](max) NULL,
+	[Role] [int] NULL,
+	[gmail] [nvarchar](max) NULL,
+	[status] [bit] NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+INSERT [dbo].[Users] ([user_id], [username], [password], [full_name], [phone_number], [address], [Role], [gmail], [status]) VALUES (1, N'admin', N'huy123', N'Huy Pham', N'0943581257', N'Hoa Lac', 1, N'huypmhs173344@fpt.edu.vn', 0)
+GO
+INSERT [dbo].[Users] ([user_id], [username], [password], [full_name], [phone_number], [address], [Role], [gmail], [status]) VALUES (2, N'huypham', N'huy123456', N'Huy', N'0942586318', N'Thach That', 1, N'hfiasu@gmail.com', 1)
+GO
+INSERT [dbo].[Users] ([user_id], [username], [password], [full_name], [phone_number], [address], [Role], [gmail], [status]) VALUES (3, N'isadmin', N'ad123456', N'Pham Huy', N'0942583617', N'Ha Noi', 0, N'huyhua01@gmail.com', 1)
+GO
+INSERT [dbo].[Users] ([user_id], [username], [password], [full_name], [phone_number], [address], [Role], [gmail], [status]) VALUES (4, N'tungtran', N'tung1234', N'Tran Tung', N'0813549247', N'Ninh Binh', 1, N'tungtran@gmail.com', 1)
+GO
+INSERT [dbo].[Users] ([user_id], [username], [password], [full_name], [phone_number], [address], [Role], [gmail], [status]) VALUES (5, N'vulong1', N'long123456', N'Vu Long', N'0813548154', N'Thach That Ha Noi', 1, N'longvu@gmail.com', 1)
+GO
+INSERT [dbo].[Users] ([user_id], [username], [password], [full_name], [phone_number], [address], [Role], [gmail], [status]) VALUES (6, N'hoangdanh93', N'danh154657', N'Hoang Danh', N'0513547895', N'Thanh Xuan - Ha Noi', 1, N'danh123@gmail.com', 1)
+GO
+INSERT [dbo].[Users] ([user_id], [username], [password], [full_name], [phone_number], [address], [Role], [gmail], [status]) VALUES (7, N'dungvuk15', N'anhdung1412', N'Vu Dung', N'0123548254', N'Nam Tu Liem', 1, N'dung22@gmail.com', 1)
+GO
+INSERT [dbo].[Users] ([user_id], [username], [password], [full_name], [phone_number], [address], [Role], [gmail], [status]) VALUES (8, N'phamminhhuy', N'huypham12', N'huy pham', N'0392743682', N'Hoa Lac - Ha Noi', 2, N'tungtthe25102003@gmail.com', 1)
+GO
+INSERT [dbo].[Users] ([user_id], [username], [password], [full_name], [phone_number], [address], [Role], [gmail], [status]) VALUES (9, N'tranthanhtung', N'tungtran22', N'Tran Thanh Tung', N'0513258472', N'Kim Son - Ninh Binh', 1, N'tungtran@gmail.com', 0)
+GO
+INSERT [dbo].[Users] ([user_id], [username], [password], [full_name], [phone_number], [address], [Role], [gmail], [status]) VALUES (10, N'tranthanhtung1', N'asdf123', NULL, N'0865861535', NULL, 2, N'tungtthe25102003@gmail.com', 1)
+GO
+INSERT [dbo].[Users] ([user_id], [username], [password], [full_name], [phone_number], [address], [Role], [gmail], [status]) VALUES (1, N'admin', N'huy123', N'Huy Pham', N'0943581257', N'Hoa Lac', 1, N'huypmhs173344@fpt.edu.vn', 0)
+GO
+INSERT [dbo].[Users] ([user_id], [username], [password], [full_name], [phone_number], [address], [Role], [gmail], [status]) VALUES (2, N'huypham', N'huy123456', N'Huy', N'0942586318', N'Thach That', 1, N'hfiasu@gmail.com', 1)
+GO
+INSERT [dbo].[Users] ([user_id], [username], [password], [full_name], [phone_number], [address], [Role], [gmail], [status]) VALUES (3, N'isadmin', N'ad123456', N'Pham Huy', N'0942583617', N'Ha Noi', 0, N'huyhua01@gmail.com', 1)
+GO
+INSERT [dbo].[Users] ([user_id], [username], [password], [full_name], [phone_number], [address], [Role], [gmail], [status]) VALUES (4, N'tungtran', N'tung1234', N'Tran Tung', N'0813549247', N'Ninh Binh', 1, N'tungtran@gmail.com', 1)
+GO
+INSERT [dbo].[Users] ([user_id], [username], [password], [full_name], [phone_number], [address], [Role], [gmail], [status]) VALUES (5, N'vulong1', N'long123456', N'Vu Long', N'0813548154', N'Thach That Ha Noi', 1, N'longvu@gmail.com', 1)
+GO
+INSERT [dbo].[Users] ([user_id], [username], [password], [full_name], [phone_number], [address], [Role], [gmail], [status]) VALUES (6, N'hoangdanh93', N'danh154657', N'Hoang Danh', N'0513547895', N'Thanh Xuan - Ha Noi', 1, N'danh123@gmail.com', 1)
+GO
+INSERT [dbo].[Users] ([user_id], [username], [password], [full_name], [phone_number], [address], [Role], [gmail], [status]) VALUES (7, N'dungvuk15', N'anhdung1412', N'Vu Dung', N'0123548254', N'Nam Tu Liem', 1, N'dung22@gmail.com', 1)
+GO
+INSERT [dbo].[Users] ([user_id], [username], [password], [full_name], [phone_number], [address], [Role], [gmail], [status]) VALUES (8, N'phamminhhuy', N'huypham12', N'huy pham', N'0392743682', N'Hoa Lac - Ha Noi', 2, N'tungtthe25102003@gmail.com', 1)
+GO
+INSERT [dbo].[Users] ([user_id], [username], [password], [full_name], [phone_number], [address], [Role], [gmail], [status]) VALUES (9, N'tranthanhtung', N'tungtran22', N'Tran Thanh Tung', N'0513258472', N'Kim Son - Ninh Binh', 1, N'tungtran@gmail.com', 0)
+GO
+INSERT [dbo].[Users] ([user_id], [username], [password], [full_name], [phone_number], [address], [Role], [gmail], [status]) VALUES (10, N'tranthanhtung1', N'asdf123', NULL, N'0865861535', NULL, 2, N'tungtthe25102003@gmail.com', 1)
+GO
+USE [master]
+GO
+ALTER DATABASE [Insurance] SET  READ_WRITE 
+GO
