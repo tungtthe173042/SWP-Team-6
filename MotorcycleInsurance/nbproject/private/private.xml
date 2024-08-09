@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/web/WEB-INF/web.xml</file>
             <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/web/META-INF/context.xml</file>
             <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/src/java/model/User.java</file>
@@ -22,6 +23,11 @@
             <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/web/admin/ListAccount.jsp</file>
             <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/src/java/model/Generate.java</file>
             <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/src/java/model/CustomerInsurrance.java</file>
+=======
+            <file>file:/D:/PRJ301/Test/MotorcycleInsurance/src/java/controller/common/SignupSeverlet.java</file>
+            <file>file:/D:/PRJ301/Test/MotorcycleInsurance/src/java/dao/DBContext.java</file>
+            <file>file:/D:/PRJ301/Test/MotorcycleInsurance/web/common/signup.jsp</file>
+>>>>>>> 3cecfefb0d6ec87ebb9208391adb19ba069ebc75
         </group>
     </open-files>
 </project-private>
