@@ -17,7 +17,7 @@
     <body>
         <div class="container my-5">
             <h1 class="mb-4">Insurance Management</h1>
-
+            <button class="btn btn-primary mb-3" id="addInsuranceBtn">Add Insurance</button>
             <table id="insuranceTable" class="table table-bordered" style="width:100%">
                 <thead>
                     <tr>
@@ -45,6 +45,9 @@
                                     </c:otherwise>
                                 </c:choose></td>
                             <td>
+                                <a href="" class="btn btn-warning btn-sm">Edit</a>
+                                <button class="btn btn-danger btn-sm deleteBtn" >Delete</button>
+                                <button class="btn btn-secondary btn-sm hiddenBtn" >Hidden</button>
 
                             </td>
                         </tr>
@@ -56,8 +59,12 @@
         <script>
             $(document).ready(function () {
             $('#insuranceTable').DataTable({
-            })
-            ;
+                 "language": {
+                        "url": "//cdn.datatables.net/plug-ins/1.13.1/i18n/en-GB.json"
+                    }
+            
+            });
+            });
 
         </script>
     </body>
