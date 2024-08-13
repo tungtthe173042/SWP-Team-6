@@ -17,7 +17,7 @@
     <body>
         <div class="container my-5">
             <h1 class="mb-4">Insurance Management</h1>
-            
+
             <table id="insuranceTable" class="table table-bordered" style="width:100%">
                 <thead>
                     <tr>
@@ -36,9 +36,16 @@
                             <td>${insurance.insuranceName}</td>
                             <td>${insurance.insuranceDescription}</td>
                             <td>${insurance.insurancePrice}</td>
-                            <td>${insurance.status}</td>
+                            <td> <c:choose>
+                                    <c:when test="${insurance.status == 1}">
+                                        Active
+                                    </c:when>
+                                    <c:otherwise>
+                                        Hidden
+                                    </c:otherwise>
+                                </c:choose></td>
                             <td>
-                               
+
                             </td>
                         </tr>
                     </c:forEach>
@@ -48,8 +55,9 @@
 
         <script>
             $(document).ready(function () {
-                $('#insuranceTable').DataTable({
-                });
+            $('#insuranceTable').DataTable({
+            })
+            ;
 
         </script>
     </body>
