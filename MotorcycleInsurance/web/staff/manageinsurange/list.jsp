@@ -45,6 +45,9 @@
                                     </c:otherwise>
                                 </c:choose></td>
                             <td>
+                                <a href="" class="btn btn-warning btn-sm">Edit</a>
+                                <button class="btn btn-danger btn-sm deleteBtn" >Delete</button>
+                                <button class="btn btn-secondary btn-sm hiddenBtn" >Hidden</button>
 
                             </td>
                         </tr>
