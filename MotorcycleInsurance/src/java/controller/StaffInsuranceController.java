@@ -1,5 +1,4 @@
-package controller.staff;
-
+package controller;
 import dao.InsuranceDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -105,7 +104,7 @@ public class StaffInsuranceController extends HttpServlet {
             request.setAttribute("error", "Failed to update insurance.");
         }
 
-        doGet(request, response);
+         response.sendRedirect("staff-insurance");
     }
 
     private void deleteInsurance(HttpServletRequest request, HttpServletResponse response)
