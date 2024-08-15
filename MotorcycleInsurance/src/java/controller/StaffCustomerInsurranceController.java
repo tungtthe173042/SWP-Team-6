@@ -95,7 +95,7 @@ public class StaffCustomerInsurranceController extends HttpServlet {
         }
     }
 
-    private void updateCustomerInsurranceDoPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+    private void updateCustomerInsurranceDoPost(HttpServletRequest request, HttpServletResponse response) {
         try {
             // Get the updated customer insurance details from the request
             int id = Integer.parseInt(request.getParameter("id"));
@@ -132,8 +132,7 @@ public class StaffCustomerInsurranceController extends HttpServlet {
             }
 
             // Redirect the user back to the staff-customer-insurrance?action=edit page
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/staff/managecontract/manageContract.jsp");
-            dispatcher.forward(request, response);
+            response.sendRedirect(request.getContextPath() + "/staff-customer-insurrance?action=edit&id=" + id);
         } catch (IOException e) {
             // Handle any exceptions that occur
             e.printStackTrace();

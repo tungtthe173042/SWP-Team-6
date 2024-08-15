@@ -233,8 +233,9 @@
                                                     <button type="reset" class="btn btn-danger btn-sm">
                                                         <i class="fa fa-ban"></i> Reset
                                                     </button>
-                                                    <button onclick="window.location.href = '<%=request.getContextPath()%>/staff/managecontract/manageContract.jsp'">
-                                                        Back
+                                                    <button type="button" class="btn btn-secondary btn-sm" onClick="window.location='${pageContext.request.contextPath}/staff-customer-insurrance'">
+                                                     <i class="fa fa-arrow-left"> </i> Back
+                                                         
                                                     </button>
                                                 </div>
                                             </form>
