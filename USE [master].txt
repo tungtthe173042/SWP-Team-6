@@ -1,4 +1,4 @@
-USE [master]
+USE master
 GO
 /****** Object:  Database [Insurance]    Script Date: 8/8/2024 9:02:31 AM ******/
 CREATE DATABASE [Insurance]

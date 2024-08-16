@@ -318,7 +318,10 @@ section {
 .main-content {
     padding-top: 116px;
     min-height: 100vh;
+<<<<<<< HEAD
+=======
     background: #fff;
+>>>>>>> 3cecfefb0d6ec87ebb9208391adb19ba069ebc75
 }
 
 @media (max-width: 991px) {
