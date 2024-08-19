@@ -6,12 +6,19 @@ package model;
 
 import java.util.Date;
 <<<<<<< HEAD:MotorcycleInsurance/src/java/model/Email.java
+
+import java.util.Iterator;
+
+
+=======
+<<<<<<< HEAD:MotorcycleInsurance/src/java/model/Email.java
 <<<<<<< HEAD
 import java.util.Iterator;
 =======
 >>>>>>> 3cecfefb0d6ec87ebb9208391adb19ba069ebc75
 =======
 >>>>>>> huy:MotorcycleInsurance/MotorcycleInsurance/src/java/model/Email.java
+>>>>>>> 811cfefdebb9c0b5d18c178f1efa9b82f5e60d32:MotorcycleInsurance/MotorcycleInsurance/src/java/model/Email.java
 import java.util.Properties;
 
 import jakarta.mail.Authenticator;
@@ -22,6 +29,11 @@ import jakarta.mail.Transport;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 <<<<<<< HEAD:MotorcycleInsurance/src/java/model/Email.java
+
+import jakarta.activation.DataHandler;
+import jakarta.activation.DataSource;
+=======
+<<<<<<< HEAD:MotorcycleInsurance/src/java/model/Email.java
 <<<<<<< HEAD
 import jakarta.activation.DataHandler;
 import jakarta.activation.DataSource;
@@ -29,6 +41,7 @@ import jakarta.activation.DataSource;
 >>>>>>> 3cecfefb0d6ec87ebb9208391adb19ba069ebc75
 =======
 >>>>>>> huy:MotorcycleInsurance/MotorcycleInsurance/src/java/model/Email.java
+>>>>>>> 811cfefdebb9c0b5d18c178f1efa9b82f5e60d32:MotorcycleInsurance/MotorcycleInsurance/src/java/model/Email.java
 import jakarta.mail.internet.MimeUtility;
 
 public class Email {
