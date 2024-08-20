@@ -16,7 +16,7 @@ import java.util.List;
 import java.sql.Date;
 import model.CustomerInsurrance;
 
-@WebServlet(name = "StaffCustomerInsurranceController", urlPatterns = { "/staff-customer-insurrance" })
+@WebServlet(name = "StaffCustomerInsurranceController", urlPatterns = {"/staff-customer-insurrance"})
 public class StaffCustomerInsurranceController extends HttpServlet {
 
     @Override

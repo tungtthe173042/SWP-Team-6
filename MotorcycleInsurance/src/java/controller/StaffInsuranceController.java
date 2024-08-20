@@ -16,9 +16,7 @@ public class StaffInsuranceController extends HttpServlet {
      protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("action");
-        if ("get".equalsIgnoreCase(action)) {
-            getInsurance(request, response);
-        } else if ("add".equalsIgnoreCase(action)) {
+        if ("add".equalsIgnoreCase(action)) {
             // Chuyển hướng đến trang thêm bảo hiểm
             request.getRequestDispatcher("/staff/manageinsurange/add.jsp").forward(request, response);
         } else if ("edit".equalsIgnoreCase(action)) {
@@ -139,19 +137,5 @@ public class StaffInsuranceController extends HttpServlet {
         }
     }
 
-    private void getInsurance(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        InsuranceDAO insuranceDAO = new InsuranceDAO();
-        Insurance insurance = insuranceDAO.findById(id);
-
-        if (insurance != null) {
-            String json = new Gson().toJson(insurance);
-            response.setContentType("application/json");
-            response.setCharacterEncoding("UTF-8");
-            response.getWriter().write(json);
-        } else {
-            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-        }
-    }
+   
 }

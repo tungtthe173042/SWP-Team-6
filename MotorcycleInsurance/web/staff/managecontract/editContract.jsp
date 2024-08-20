@@ -167,7 +167,7 @@
                                                         <label for="user-id" class=" form-control-label">User ID</label>
                                                     </div>
                                                     <div class="col-12 col-md-9">
-                                                        <input type="text" id="user-id" name="user-id" value="${customerInsurance.getUserID()}" class="form-control">
+                                                        <input type="text" id="user-id" name="user-id" value="${customerInsurance.getUserID()}" class="form-control" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
@@ -175,15 +175,15 @@
                                                         <label for="insurance-name" class=" form-control-label">Insurance Name</label>
                                                     </div>
                                                     <div class="col-12 col-md-9">
-                                                        <input type="text" id="insurance-name" name="insurance-name" value="${customerInsurance.getInsuranceName()}" class="form-control">
+                                                        <input type="text" id="insurance-name" name="insurance-name" value="${customerInsurance.getInsuranceName()}" class="form-control" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
                                                     <div class="col col-md-3">
-                                                        <label for="start-date" class=" form-control-label">Start Date</label>
+                                                        <label for="start-date" class=" form-control-label" readonly>Start Date</label>
                                                     </div>
                                                     <div class="col-12 col-md-9">
-                                                        <input type="date" id="start-date" name="start-date" value="${customerInsurance.getStartDate()}" class="form-control">
+                                                        <input type="date" id="start-date" name="start-date" value="${customerInsurance.getStartDate()}" class="form-control" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
@@ -191,7 +191,7 @@
                                                         <label for="end-date" class=" form-control-label">End Date</label>
                                                     </div>
                                                     <div class="col-12 col-md-9">
-                                                        <input type="date" id="end-date" name="end-date" value="${customerInsurance.getEndDate()}" class="form-control">
+                                                        <input type="date" id="end-date" name="end-date" value="${customerInsurance.getEndDate()}" class="form-control" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
@@ -199,7 +199,7 @@
                                                         <label for="owner-name" class=" form-control-label">Owner Name</label>
                                                     </div>
                                                     <div class="col-12 col-md-9">
-                                                        <input type="text" id="owner-name" name="owner-name" value="${customerInsurance.getOwnerName()}" class="form-control">
+                                                        <input type="text" id="owner-name" name="owner-name" value="${customerInsurance.getOwnerName()}" class="form-control" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
