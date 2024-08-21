@@ -150,4 +150,20 @@ public class CustomerInsurranceDAO extends DBContext {
 
         return false;
     }
+    
+    public boolean softDelete(int id) {
+        String sql = "UPDATE CustomerInsurance SET isDelete = 1 WHERE CIsuranceID = ?";
+
+        try (Connection connection = new DBContext().connection; PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setInt(1, id);
+
+            int rowsAffected = statement.executeUpdate();
+            return rowsAffected > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(CustomerInsurranceDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return false;
+    }
 }
