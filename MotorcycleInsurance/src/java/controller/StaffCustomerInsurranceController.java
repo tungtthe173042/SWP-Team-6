@@ -1,4 +1,4 @@
-package controller.staff;
+package controller;
 
 import dao.CustomerInsurranceDAO;
 import jakarta.servlet.RequestDispatcher;

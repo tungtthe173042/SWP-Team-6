@@ -1,4 +1,4 @@
-package controller.staff;
+package controller;
 
 import dao.InsuranceDAO;
 import jakarta.servlet.ServletException;
