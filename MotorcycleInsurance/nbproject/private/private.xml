@@ -7,6 +7,7 @@
 =======
         <group>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/web/WEB-INF/web.xml</file>
             <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/web/META-INF/context.xml</file>
             <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/src/java/model/User.java</file>
@@ -18,13 +19,12 @@
             <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/web/staff/manageinsurange/add.jsp</file>
             <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/web/staff/managecontract/resolveaccident.jsp</file>
             <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/web/common/home.jsp</file>
+=======
+>>>>>>> long
             <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/web/staff/manageinsurange/list.jsp</file>
-            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/web/forget-password.jsp</file>
-            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/src/java/dao/DBContext.java</file>
-            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/src/java/model/Accident.java</file>
-            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/src/java/dao/DBLoginContext.java</file>
-            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/web/admin/ListAccount.jsp</file>
-            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/src/java/model/Generate.java</file>
+            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/src/java/dao/InsuranceDAO.java</file>
+            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/web/staff/manageinsurange/update.jsp</file>
+            <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/src/java/controller/StaffInsuranceController.java</file>
             <file>file:/C:/OnTap/GitSWP/SWP-Team-6/MotorcycleInsurance/src/java/model/CustomerInsurrance.java</file>
 =======
             <file>file:/D:/PRJ301/Test/MotorcycleInsurance/src/java/controller/common/SignupSeverlet.java</file>

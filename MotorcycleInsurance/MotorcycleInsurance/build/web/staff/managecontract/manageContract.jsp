@@ -1,4 +1,4 @@
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,10 +14,10 @@
         <!-- Title Page-->
         <title>Dashboard</title>
 
-        <jsp:include page="link_css_contract.jsp"></jsp:include>
+        <jsp:include page="../common/link_css_contract.jsp"></jsp:include>
 
             <!-- Main CSS-->
-            <link href="${pageContext.request.contextPath}/staff/managecontract/css/theme.css" rel="stylesheet" media="all">
+            <link href="${pageContext.request.contextPath}/staff/common/css/theme.css" rel="stylesheet" media="all">
 
     </head>
 
@@ -141,13 +141,13 @@
             <!-- END HEADER MOBILE-->
 
             <!-- MENU SIDEBAR-->
-            <jsp:include page="sideBar.jsp"></jsp:include>
+            <jsp:include page="../common/sideBar.jsp"></jsp:include>
                 <!-- END MENU SIDEBAR-->
 
                 <!-- PAGE CONTAINER-->
                 <div class="page-container">
                     <!-- HEADER DESKTOP-->
-                <jsp:include page="header.jsp"></jsp:include>
+                <jsp:include page="../common/header.jsp"></jsp:include>
                     <!-- HEADER DESKTOP-->
 
                     <!-- MAIN CONTENT-->
@@ -179,7 +179,9 @@
                                                         <th>License Plates</th>
                                                         <th>Engine Number</th>
                                                         <th>Chassis Number</th>
-                                                        <th>Action</th> <!-- New Action column -->
+                                                        <th>Vehicle Registration Address</th>
+                                                        <th>Passenger Accident</th>
+                                                        <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -194,11 +196,12 @@
                                                         <td>${customerInsurance.getLicensePlates()}</td>
                                                         <td>${customerInsurance.getEngineNumber()}</td>
                                                         <td>${customerInsurance.getChassisNumber()}</td>
+                                                        <td>${customerInsurance.getVehicleRegistrationAddress()}</td>
+                                                        <td>${customerInsurance.getPassengerAccident()}</td>
                                                         <td>
-                                                            <!-- Action buttons -->
                                                             <a href="${pageContext.request.contextPath}/staff-customer-insurrance?action=edit&id=${customerInsurance.getCIsuranceID()}" class="btn btn-primary btn-sm">Edit</a>
-                                                            <button type="button" class="btn btn-warning btn-sm">Renew</button>
-                                                            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                                                            <button type="button" class="btn btn-warning btn-sm renew-btn" data-id="${customerInsurance.getCIsuranceID()}">Renew</button>     
+                                                            <button type="button" class="btn btn-danger btn-sm" data-id="${customerInsurance.getCIsuranceID()}">Delete</button>                                                        
                                                         </td>
                                                     </tr>
                                                 </c:forEach>
@@ -211,7 +214,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="copyright">
-                                        <p>Copyright � 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                                        <p>Copyright ï¿½ 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
                                     </div>
                                 </div>
                             </div>
@@ -224,8 +227,82 @@
 
         </div>
 
-        <jsp:include page="link_js_contract.jsp"></jsp:include>
+        <!-- Thêm modal xác nhận vào cuối trang, trước các thẻ đóng body và html -->
+        <div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteConfirmModalLabel">Confirm Delete</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete this insurance record?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <!-- Thêm link đến CSS của Toastr trong phần head của trang -->
+        <jsp:include page="../common/link_js_contract.jsp"></jsp:include>
+            <!-- Initialize DataTables -->
+            <script>
+                $(document).ready(function () {
+                    let table = new DataTable('.table');
+                });
+            </script>
+
+            <script>
+                $(document).ready(function () {
+                    let deleteId;
+
+                    // Sử dụng event delegation để xử lý nút Delete
+                    $('table').on('click', '.btn-danger', function () {
+                        deleteId = $(this).data('id');
+                        $('#deleteConfirmModal').modal('show');
+                        console.log('Delete ID:', deleteId);
+                    });
+
+                    $('#confirmDeleteBtn').click(function () {
+                        console.log('Sending delete request for ID:', deleteId);
+                        $.ajax({
+                            url: '${pageContext.request.contextPath}/staff-customer-insurrance',
+                            type: 'POST',
+                            data: {
+                                action: 'delete',
+                                id: deleteId
+                            },
+                            success: function (response) {
+                                $('#deleteConfirmModal').modal('hide');
+                                if (response === 'success') {
+                                    toastr.success('Insurance record deleted successfully');
+                                    // Xóa hàng khỏi bảng
+                                    $('tr').filter(function () {
+                                        return $(this).find('td:first').text() == deleteId;
+                                    }).remove();
+                                } else {
+                                    toastr.error('Failed to delete insurance record');
+                                }
+                            },
+                            error: function (xhr, status, error) {
+                                $('#deleteConfirmModal').modal('hide');
+                                console.error('Error:', error);
+                                toastr.error('An error occurred while deleting the insurance record');
+                            }
+                        });
+                    });
+                    //Xử lý renew button
+                    $('.renew-btn').click(function () {
+                        var id = $(this).data('id');
+                        window.location.href = '${pageContext.request.contextPath}/staff-customer-insurrance?action=renew&id=' + id;
+                    });
+                });
+        </script>
     </body>
 
 </html>

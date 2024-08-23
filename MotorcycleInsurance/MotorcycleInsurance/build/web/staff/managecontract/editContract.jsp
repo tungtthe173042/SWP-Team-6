@@ -13,10 +13,10 @@
         <!-- Title Page-->
         <title>Edit Insurance</title>
 
-        <jsp:include page="link_css_contract.jsp"></jsp:include>
+        <jsp:include page="../common/link_css_contract.jsp"></jsp:include>
 
             <!-- Main CSS-->
-            <link href="${pageContext.request.contextPath}/staff/managecontract/css/theme.css" rel="stylesheet" media="all">
+            <link href="${pageContext.request.contextPath}/staff/common/css/theme.css" rel="stylesheet" media="all">
 
     </head>
 
@@ -140,13 +140,13 @@
             <!-- END HEADER MOBILE-->
 
             <!-- MENU SIDEBAR-->
-            <jsp:include page="sideBar.jsp"></jsp:include>
+            <jsp:include page="../common/sideBar.jsp"></jsp:include>
                 <!-- END MENU SIDEBAR-->
 
                 <!-- PAGE CONTAINER-->
                 <div class="page-container">
                     <!-- HEADER DESKTOP-->
-                <jsp:include page="header.jsp"></jsp:include>
+                <jsp:include page="../common/header.jsp"></jsp:include>
                     <!-- HEADER DESKTOP-->
 
                     <!-- MAIN CONTENT-->
@@ -164,7 +164,7 @@
                                                 <input type="hidden" name="id" value="${customerInsurance.getCIsuranceID()}">
                                                 <div class="row form-group">
                                                     <div class="col col-md-3">
-                                                        <label for="user-id" class=" form-control-label">User ID</label>
+                                                        <label for="user-id" class="form-control-label">User ID</label>
                                                     </div>
                                                     <div class="col-12 col-md-9">
                                                         <input type="text" id="user-id" name="user-id" value="${customerInsurance.getUserID()}" class="form-control">
@@ -172,7 +172,7 @@
                                                 </div>
                                                 <div class="row form-group">
                                                     <div class="col col-md-3">
-                                                        <label for="insurance-name" class=" form-control-label">Insurance Name</label>
+                                                        <label for="insurance-name" class="form-control-label">Insurance Name</label>
                                                     </div>
                                                     <div class="col-12 col-md-9">
                                                         <input type="text" id="insurance-name" name="insurance-name" value="${customerInsurance.getInsuranceName()}" class="form-control">
@@ -180,7 +180,7 @@
                                                 </div>
                                                 <div class="row form-group">
                                                     <div class="col col-md-3">
-                                                        <label for="start-date" class=" form-control-label">Start Date</label>
+                                                        <label for="start-date" class="form-control-label">Start Date</label>
                                                     </div>
                                                     <div class="col-12 col-md-9">
                                                         <input type="date" id="start-date" name="start-date" value="${customerInsurance.getStartDate()}" class="form-control">
@@ -188,7 +188,7 @@
                                                 </div>
                                                 <div class="row form-group">
                                                     <div class="col col-md-3">
-                                                        <label for="end-date" class=" form-control-label">End Date</label>
+                                                        <label for="end-date" class="form-control-label">End Date</label>
                                                     </div>
                                                     <div class="col-12 col-md-9">
                                                         <input type="date" id="end-date" name="end-date" value="${customerInsurance.getEndDate()}" class="form-control">
@@ -196,7 +196,7 @@
                                                 </div>
                                                 <div class="row form-group">
                                                     <div class="col col-md-3">
-                                                        <label for="owner-name" class=" form-control-label">Owner Name</label>
+                                                        <label for="owner-name" class="form-control-label">Owner Name</label>
                                                     </div>
                                                     <div class="col-12 col-md-9">
                                                         <input type="text" id="owner-name" name="owner-name" value="${customerInsurance.getOwnerName()}" class="form-control">
@@ -204,7 +204,7 @@
                                                 </div>
                                                 <div class="row form-group">
                                                     <div class="col col-md-3">
-                                                        <label for="license-plates" class=" form-control-label">License Plates</label>
+                                                        <label for="license-plates" class="form-control-label">License Plates</label>
                                                     </div>
                                                     <div class="col-12 col-md-9">
                                                         <input type="text" id="license-plates" name="license-plates" value="${customerInsurance.getLicensePlates()}" class="form-control">
@@ -212,7 +212,7 @@
                                                 </div>
                                                 <div class="row form-group">
                                                     <div class="col col-md-3">
-                                                        <label for="engine-number" class=" form-control-label">Engine Number</label>
+                                                        <label for="engine-number" class="form-control-label">Engine Number</label>
                                                     </div>
                                                     <div class="col-12 col-md-9">
                                                         <input type="text" id="engine-number" name="engine-number" value="${customerInsurance.getEngineNumber()}" class="form-control">
@@ -220,10 +220,38 @@
                                                 </div>
                                                 <div class="row form-group">
                                                     <div class="col col-md-3">
-                                                        <label for="chassis-number" class=" form-control-label">Chassis Number</label>
+                                                        <label for="chassis-number" class="form-control-label">Chassis Number</label>
                                                     </div>
                                                     <div class="col-12 col-md-9">
                                                         <input type="text" id="chassis-number" name="chassis-number" value="${customerInsurance.getChassisNumber()}" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <!-- New fields -->
+                                                <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <label for="vehicle-registration-address" class="form-control-label">Vehicle Registration Address</label>
+                                                    </div>
+                                                    <div class="col-12 col-md-9">
+                                                        <input type="text" id="vehicle-registration-address" name="vehicle-registration-address" value="${customerInsurance.getVehicleRegistrationAddress()}" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <label for="passenger-accident" class="form-control-label">Passenger Accident</label>
+                                                    </div>
+                                                    <div class="col-12 col-md-9">
+                                                        <input type="text" id="passenger-accident" name="passenger-accident" value="${customerInsurance.getPassengerAccident()}" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <label for="is-delete" class="form-control-label">Is Delete</label>
+                                                    </div>
+                                                    <div class="col-12 col-md-9">
+                                                        <select id="is-delete" name="is-delete" class="form-control">
+                                                            <option value="false" ${!customerInsurance.getIsDelete() ? 'selected' : ''}>No</option>
+                                                            <option value="true" ${customerInsurance.getIsDelete() ? 'selected' : ''}>Yes</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <div class="card-footer">
@@ -233,9 +261,8 @@
                                                     <button type="reset" class="btn btn-danger btn-sm">
                                                         <i class="fa fa-ban"></i> Reset
                                                     </button>
-                                                    <button type="button" class="btn btn-secondary btn-sm" onClick="window.location='${pageContext.request.contextPath}/staff-customer-insurrance'">
-                                                     <i class="fa fa-arrow-left"> </i> Back
-                                                         
+                                                    <button type="button" class="btn btn-secondary btn-sm" onClick="window.location = '${pageContext.request.contextPath}/staff-customer-insurrance'">
+                                                        <i class="fa fa-arrow-left"></i> Back
                                                     </button>
                                                 </div>
                                             </form>
@@ -252,7 +279,7 @@
 
         </div>
 
-        <jsp:include page="link_js_contract.jsp"></jsp:include>
+        <jsp:include page="../common/link_js_contract.jsp"></jsp:include>
             <!-- Toast JS -->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
             <script>

@@ -27,10 +27,8 @@ public class InsuranceDAO extends DBContext {
         List<Insurance> insuranceList = new ArrayList<>();
         String sql = "SELECT * FROM Insurance";
 
-        try {
-            Connection connection = new DBContext().connection;
-            PreparedStatement statement = connection.prepareStatement(sql);
-            ResultSet resultSet = statement.executeQuery();
+        try (Connection connection = new DBContext().connection; PreparedStatement statement = connection.prepareStatement(sql); ResultSet resultSet = statement.executeQuery()) {
+
             while (resultSet.next()) {
                 Insurance insurance = new Insurance();
                 insurance.setInsuranceID(resultSet.getInt("InsuranceID"));
@@ -38,6 +36,7 @@ public class InsuranceDAO extends DBContext {
                 insurance.setInsuranceDescription(resultSet.getString("InsuranceDescreption"));
                 insurance.setInsurancePrice(resultSet.getInt("InsurancePrice"));
                 insurance.setStatus(resultSet.getInt("Status"));
+                insurance.setImage(resultSet.getString("Image"));
                 insuranceList.add(insurance);
             }
         } catch (SQLException ex) {
@@ -54,8 +53,7 @@ public class InsuranceDAO extends DBContext {
      * @return true if the update was successful, false otherwise
      */
     public boolean update(Insurance insurance) {
-        String sql = "UPDATE Insurance SET InsuranceName = ?,"
-                + " InsuranceDescreption = ?, InsurancePrice = ?, Status = ? WHERE InsuranceID = ?";
+        String sql = "UPDATE Insurance SET InsuranceName = ?, InsuranceDescreption = ?, InsurancePrice = ?, Status = ?, Image = ? WHERE InsuranceID = ?";
 
         try {
             Connection connection = new DBContext().connection;
@@ -64,7 +62,8 @@ public class InsuranceDAO extends DBContext {
             statement.setString(2, insurance.getInsuranceDescription());
             statement.setInt(3, insurance.getInsurancePrice());
             statement.setInt(4, insurance.getStatus());
-            statement.setInt(5, insurance.getInsuranceID());
+            statement.setString(5, insurance.getImage());
+            statement.setInt(6, insurance.getInsuranceID());
             int rowsAffected = statement.executeUpdate();
             return rowsAffected > 0;
         } catch (SQLException ex) {
@@ -105,7 +104,7 @@ public class InsuranceDAO extends DBContext {
      * failed
      */
     public int add(Insurance insurance) {
-        String sql = "INSERT INTO Insurance (InsuranceName, InsuranceDescreption, InsurancePrice, Status) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO Insurance (InsuranceName, InsuranceDescreption, InsurancePrice, Status, Image) VALUES (?, ?, ?, ?, ?)";
 
         try {
             Connection connection = new DBContext().connection;
@@ -115,6 +114,7 @@ public class InsuranceDAO extends DBContext {
             statement.setString(2, insurance.getInsuranceDescription());
             statement.setInt(3, insurance.getInsurancePrice());
             statement.setInt(4, insurance.getStatus());
+            statement.setString(5, insurance.getImage());
             int rowsAffected = statement.executeUpdate();
             if (rowsAffected > 0) {
                 ResultSet generatedKeys = statement.getGeneratedKeys();
@@ -142,6 +142,7 @@ public class InsuranceDAO extends DBContext {
                 insurance.setInsuranceDescription(resultSet.getString("InsuranceDescreption"));
                 insurance.setInsurancePrice(resultSet.getInt("InsurancePrice"));
                 insurance.setStatus(resultSet.getInt("Status"));
+                insurance.setImage(resultSet.getString("Image"));
                 return insurance;
             }
         } catch (SQLException ex) {
@@ -149,7 +150,7 @@ public class InsuranceDAO extends DBContext {
         }
         return null;
     }
-    
+
     public boolean hide(int insuranceID) {
         String sql = "UPDATE Insurance SET Status = 0 WHERE InsuranceID = ?";
 
