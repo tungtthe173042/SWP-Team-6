@@ -7,14 +7,24 @@ public class Accident {
     private String image;
     private String accidentDescription;
     private Date accidentDate;
-    private Date accidentName; 
+    private String accidentName;
     private Integer cIsuranceID;
+    private Boolean status;
 
-    // Constructor
     public Accident() {
     }
 
-    // Getters and Setters
+    public Accident(int accidentID, String image, String accidentDescription, Date accidentDate, String accidentName, Integer cIsuranceID, Boolean status) {
+        this.accidentID = accidentID;
+        this.image = image;
+        this.accidentDescription = accidentDescription;
+        this.accidentDate = accidentDate;
+        this.accidentName = accidentName;
+        this.cIsuranceID = cIsuranceID;
+        this.status = status;
+    }
+
+    // Getters và Setters
     public int getAccidentID() {
         return accidentID;
     }
@@ -47,11 +57,11 @@ public class Accident {
         this.accidentDate = accidentDate;
     }
 
-    public Date getAccidentName() {
+    public String getAccidentName() {
         return accidentName;
     }
 
-    public void setAccidentName(Date accidentName) {
+    public void setAccidentName(String accidentName) {
         this.accidentName = accidentName;
     }
 
@@ -63,6 +73,15 @@ public class Accident {
         this.cIsuranceID = cIsuranceID;
     }
 
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    // Phương thức toString() để in thông tin của đối tượng
     @Override
     public String toString() {
         return "Accident{" +
@@ -70,8 +89,9 @@ public class Accident {
                 ", image='" + image + '\'' +
                 ", accidentDescription='" + accidentDescription + '\'' +
                 ", accidentDate=" + accidentDate +
-                ", accidentName=" + accidentName +
+                ", accidentName='" + accidentName + '\'' +
                 ", cIsuranceID=" + cIsuranceID +
+                ", status=" + status +
                 '}';
     }
 }
